@@ -1,3 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    font-weight: bold;
+    width: 30%;
+    font-family: serif;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    border-bottom: 2px solid grey;
+    padding: 1.2em 0;
+    margin: 1.5%;
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -5,6 +22,7 @@
     height: 100vw;
     grid-gap: 10px;
 }
+
 .gallery-item {
     background-color: black;
 }
