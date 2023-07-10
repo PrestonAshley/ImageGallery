@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery</title>
 
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/lightbox.min.css">
 </head>
 <body>
 
@@ -13,33 +14,90 @@
         
     <div class="gallery">
         <div class="gallery-item gallery-item-1">
-            <img src="./images/1.jpg" alt="Smile">
+            <a href="./images/1.jpg" data-lightbox="images" data-title="Lorem Papp naa sogem">
+                <img src="./images/1.jpg" alt="Smile">
+            </a>
         </div>
         <div class="gallery-item gallery-item-2">
-            <img src="./images/2.jpeg" alt="Anger">
+            <a href="./images/2.jpeg" data-lightbox="images" data-title="Lorem Papp naa sogem">
+                <img src="./images/2.jpeg" alt="Anger">
+            </a>
         </div>
         <div class="gallery-item gallery-item-3">
-            <img src="./images/6.JPG" alt="Sad">
+            <a href="./images/6.JPG" data-lightbox="images" data-title="Lorem Papp naa sogem">
+                <img src="./images/6.JPG" alt="Sad">
+            </a>
         </div>
         <div class="gallery-item gallery-item-4">
-            <img src="./images/4.JPG" alt="Awesome">
+            <a href="./images/4.JPG" data-lightbox="images" data-title="Lorem Papp naa sogem">
+                <img src="./images/4.JPG" alt="Awesome">
+            </a>
         </div>
         <div class="gallery-item gallery-item-5">
-            <img src="./images/7.JPG" alt="Crazy">
+            <a href="./images/7.JPG" data-lightbox="images" data-title="Lorem Papp naa sogem">
+                <img src="./images/7.JPG" alt="Crazy">
+            </a>
         </div>
         <div class="gallery-item gallery-item-6">
-            <img src="./images/8.JPG" alt="Confused">
+            <a href="./images/8.JPG" data-lightbox="images" data-title="Lorem Papp naa sogem">
+                <img src="./images/8.JPG" alt="Confused">
+            </a>
         </div>
         <div class="gallery-item gallery-item-7">
-            <img src="./images/9.jpg" alt="Fear">
+            <a href="./images/9.jpg" data-lightbox="images" data-title="Lorem Papp naa sogem">
+                <img src="./images/9.jpg" alt="Fear">
+            </a>
         </div>
         <div class="gallery-item gallery-item-8">
-            <img src="./images/3.jpeg" alt="Happy">
+            <a href="./images/3.jpeg" data-lightbox="images" data-title="Lorem Papp naa sogem">
+                <img src="./images/3.jpeg" alt="Happy">
+            </a>
         </div>
         <div class="gallery-item gallery-item-9">
+            <a href="./images/5.JPG" data-lightbox="images" data-title="Lorem Papp naa sogem">
             <img src="./images/5.JPG" alt="Curious">
+            </a>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="js/lightbox.min.js"></script>
+    <script>
+      const navbar = document.getElementById('navbar');
+      let scrolled = false;
+
+      window.onscroll = function () {
+        if (window.pageYOffset > 100) {
+          navbar.classList.remove('top');
+          if (!scrolled) {
+            navbar.style.transform = 'translateY(-70px)';
+          }
+          setTimeout(function () {
+            navbar.style.transform = 'translateY(0)';
+            scrolled = true;
+          }, 200);
+        } else {
+          navbar.classList.add('top');
+          scrolled = false;
+        }
+      };
+
+      // Smooth Scrolling
+      $('#navbar a, .btn').on('click', function (e) {
+        if (this.hash !== '') {
+          e.preventDefault();
+
+          const hash = this.hash;
+
+          $('html, body').animate(
+            {
+              scrollTop: $(hash).offset().top - 100,
+            },
+            800
+          );
+        }
+      });
+    </script>
 
 </body>
 </html>
